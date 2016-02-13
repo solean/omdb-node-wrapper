@@ -59,6 +59,15 @@ describe('getMovieById()', function() {
   });
 });
 
+describe('getPosterByMovieId()', function() {
+  it('should get the correct poster image url by imdb id', function(done) {
+    omdb.getPosterByMovieId('tt0078748', function(posterImage) {
+      assert.equal('http://ia.media-imdb.com/images/M/MV5BMTU1ODQ4NjQyOV5BMl5BanBnXkFtZTgwOTQ3NDU2MTE@._V1_SX1400.jpg', posterImage);
+      done();
+    });
+  });
+});
+
 describe('searchForMovie()', function() {
   it('should get the correct search results', function(done) {
     omdb.searchForMovie('Aliens', {}, function(queryResults) {

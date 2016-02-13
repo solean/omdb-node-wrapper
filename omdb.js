@@ -107,6 +107,22 @@ function getMovieById(id, params, callback) {
 module.exports.getMovieById = getMovieById;
 
 /*
+ * Get movie poster by movie id
+ * @param id - IMDB Movie ID
+ * @param callback - function to receive image url
+ */
+function getPosterByMovieId(id, callback) {
+  getMovieById(id, {}, function(data) {
+    var parsedData = JSON.parse(data);
+    if (parsedData.Poster) {
+      var fullResUrl = parsedData.Poster.slice(0, -7) + '1400.jpg';
+      callback(fullResUrl);
+    }
+  });
+}
+module.exports.getPosterByMovieId = getPosterByMovieId;
+
+/*
  * Search for movie
  * @param query - Search query
  * @param params - Object with additional params
