@@ -64,7 +64,6 @@ describe('searchForMovie()', function() {
     omdb.searchForMovie('Aliens', {}, function(queryResults) {
       var parsedResults = JSON.parse(queryResults);
       assert(parsedResults.Response);
-      assert.equal(187, parsedResults.totalResults);
       assert.equal('tt0090605', parsedResults.Search[0].imdbID);
       done();
     });
